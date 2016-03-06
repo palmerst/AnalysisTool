@@ -32,6 +32,7 @@
 \renewcommand\footrulewidth{0.4pt}
 %------------------------------------------------------------------------------
 
+\setlength\parindent{0pt}
 
 % Document
 %------------------------------------------------------------------------------
@@ -74,35 +75,75 @@
 \label{sec:introduction}
 % Begin Section
 
-\subsection{Purpose and Overview}
+\subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection	
-The purpose of this document is to provide a description of the system requirements for the Compensation Analysis Tool software.  The objectives and scope of the project are given, as well as .  Functional and non-functional requirements are identified and .  Requirements on the development and maintenance process of the project are also described.
+The purpose of this document is to provide a description of the system requirements for the Compensation Analysis Tool software.  The document includes details about the domain of the project, a listing of identified functional and non-functional requirements, as well as requirements on the development and maintenance process.
 % End SubSection
 
+\subsection{Overview}
+The information in this document is presented in the following order:
+\begin{itemize} 
+\item The domain of the project is described in \hyperref[sec:domain]{\S\ref*{sec:domain}}.  This sections provides details about the project objectives, the scope of the project, the involved stakeholders, as well as the constraints, assumptions, and risks that will affect the implementation of the project.
 
+\item The functional requirements of the project are listed in \hyperref[sec:functional_requirements]{\S\ref*{sec:functional_requirements}}.
+\item The non-functional requirements of the project are listed in \hyperref[sec:non-functional_requirements]{\S\ref*{sec:non-functional_requirements}}.
+\item Requirements on the development and maintenance process are given in \hyperref[sec:req_on_dev_and_maint]{\S\ref*{sec:req_on_dev_and_maint}}.  This includes testing procedures, the implementation order of requirements, and likely changes.
+\end{itemize}
 \subsection{Definitions, Acronyms, and Abbreviations}
 \label{sub:definitions_acronyms_and_abbreviations}
 % Begin SubSection
-\begin{enumerate}
-	\item to be completed.
+\begin{enumerate}[leftmargin=1cm]
+	\item[{\bf FIR:}] functional input requirement
+	\item[{\bf FDSR:}] functional data structure requirement
+	\item[{\bf FAR:}] functional algorithmic requirement
+	\item[{\bf FOR:}] functional output requirement
+	\item[{\bf AR:}] appearance requirement
+	\item[{\bf SR:}] style requirement
+	\item[{\bf EUR:}] ease of use requirement
+	\item[{\bf LR:}] learning requirement
+	\item[{\bf UPR:}] understandability and politeness requirement
+    \item[{\bf ACR:}] accessability requirement
+    \item[{\bf SLR:}] speed and latency requirement
+    \item[{\bf PAR:}] precision and accuracy requirement
+    \item[{\bf RFR:}] robustness or fault-tolerance requirement
+    \item[{\bf LONGR:}] longevity requirement
+    \item[{\bf EPER:}] expected physical environment requirement
+    \item[{\bf MR:}] maintenance requirement
+    \item[{\bf MSR:}] supportability requirement
+    \item[{\bf MAR:}] adaptability requirement
+    \item[{\bf SAR:}] access requirement
+    \item[{\bf SPR:}] privacy requirement
+    \item[{\bf CCR:}] cultural requirement
+    \item[{\bf LCR:}] compliance requirement   
+
+
 \end{enumerate}
 % End SubSection
 
 \section{Domain}
-\label{sec:overall_description}
+\label{sec:domain}
 % Begin Section
 
-\subsection{Objective}
-The objective of this project is to produce a software tool used to assess and rank the most viable locations to start a career in a particular field. The software will produce a list of locations that offer the best income potential for a particular career or field using a mixture of employment and cost of living statistics. In addition, the software will include an option to consider the possibility of commuting in order to reduce the cost of living.
+\subsection{Objectives}
+\label{sub:obj}
+The objective of this project is to produce a software tool used to assess and rank the most viable locations to start a career in a particular field. The software will produce a list of locations that offer the best income potential for a particular career or field using a mixture of employment and cost of living statistics. In addition, the software will include an option to consider the possibility of commuting in order to reduce the cost of living.\\\\
+
+The following datasets will be used to develop the application:
+\begin{itemize}
+  \item Occupational employment statistics published by the United States Department of Labor \cite{ref:empstat} will be used to find location-based average compensation for specific careers
+  \item Location affordability statistics published by the United States Office of the Secretary of Transportation \cite{ref:afford} will be used in the assessment of location-based costs of living
+  \item Geographic location data from the GeoNames database \cite{ref:geo} will be used to create a graph for computing location/commute distances
+\end{itemize}
 
 \color{black}
 \subsection{Scope}
 \label{sub:scope}
 % Begin SubSection
 The application will be geographically limited to the United States and will only consider income related factors to arrive at a ranking.  These limitations may be expanded upon in the future, but such enhancements are beyond the current scope of the application. The application will be implemented in Java and will be able to be run on any desktop, laptop, or other device with the ability to execute JAR (Java Archive) files.
-\newline
 
+
+\subsection{Stakeholders}
 The stakeholders of this project include the team members, the instructor and teaching assistants of the CAS 2XB3 course, and any persons seeking employment who would use the tool.
 
 
@@ -113,6 +154,7 @@ The stakeholders of this project include the team members, the instructor and te
 % Begin SubSection
 The following constraints will apply to the development of our application:
 \begin{enumerate}
+    \item The implementation of the application must include at least one sorting algorithm, at least one searching algorithm, and at least one graph-based algorithm.
 	\item All milestones outlined in the CAS 2XB3 project description must be met.
 	\item All deliverables must be completed in their final form by the due date given in the CAS 2XB3 project description.
 \end{enumerate}
@@ -129,16 +171,13 @@ The following assumptions were made in the development of our requirements:
 
 \subsection{Risks}
 
-The risks that may need to be overcome during the implementation of this project are
+The risks that may need to be overcome during the implementation of this project are:
 
 \medskip
 \begin{enumerate}
 
-\item Using the Data sets to give users accurate and up to date results of potential employers.
-
-\item Using Google Maps API to allow the user to use their location to allow app to show results in their area.
-
-\color{red} \item
+\item Successful integration and utilization of the datasets listed in \hyperref[sub:obj]{\S\ref*{sub:obj}} will need to be achieved in order for the application to function properly.
+\item Successful teamwork and scheduling will be imperative in meeting all of the deadlines given in the CAS 2XB3 project description.
 
 \end{enumerate}
 % End Section
@@ -159,7 +198,7 @@ The risks that may need to be overcome during the implementation of this project
     \item The application must allow the user to (optionally) select a career title.
 	\begin{enumerate}[leftmargin=1cm]
         \item [{\bf Rationale:}] The user must have the option of selecting a career title to allow for a more specific analysis.
-        \item [{\bf Fit Criterion:}] The user is able to select a career title when running an analysis to .
+        \item [{\bf Fit Criterion:}] The user is able to select a career title when running an analysis.
 	\end{enumerate}
 
     \item The application must allow the user to (optionally) select a location restriction.
@@ -171,71 +210,86 @@ The risks that may need to be overcome during the implementation of this project
     \item The application must allow the user to (optionally) select a commuting distance.
 	\begin{enumerate}[leftmargin=1cm]
         \item [{\bf Rationale:}] The user must have the option to limit analyses within a radius of a particular city.
-        \item [{\bf Fit Criterion:}] The user is able to select a career field when running the application.
+        \item [{\bf Fit Criterion:}] The user is able to select a career field when running an analysis.
 	\end{enumerate}
 
     \item The application must allow the user to run an analysis after all required/optional inputs are specified.
 	\begin{enumerate}[leftmargin=1cm]
         \item [{\bf Rationale:}] The application must be able to perform analyses.
-        \item [{\bf Fit Criterion:}] The application transforms input data into output data.
+        \item [{\bf Fit Criterion:}] The user is able to run an analysis that transforms input data into output data.
 	\end{enumerate}
 	
 
 \end{enumerate}
 
-\subsection{Data Requirements}
+\subsection{Data Structure Requirements}
 % Begin Section:
-\begin{enumerate}[\bf{FDR}1.]
-	\item The application must load and store geographic location data for U.S. cities.
+\begin{enumerate}[\bf{FDSR}1.]
+	\item The application must load and store employment statistics information using the data available from the U. S. Bureau of Labor Statistics.
 	\begin{enumerate}[leftmargin=1cm]
-        \item [{\bf Rationale:}] The geographic location data of U.S. cities is required by analysis algorithms.
-        \item [{\bf Fit Criterion:}] Geographic location data is successfully loaded/stored by the application.
+        \item [{\bf Rationale:}] Employment data is required to perform the analyses.
+        \item [{\bf Fit Criterion:}] Employment data is successfully loaded/stored into an abstract datatype by the application.
 	\end{enumerate}
 
-	\item The application must load and store employment data.
+	\item The application must load and store cost of living information using the data available from the U. S. Office of the Secretary of Transportation.
 	\begin{enumerate}[leftmargin=1cm]
-        \item [{\bf Rationale:}] Employment data is required by analysis algorithms.
-        \item [{\bf Fit Criterion:}] Employment data is successfully loaded/stored by the application.
-	\end{enumerate}
-
-	\item The application must load and store cost of living data.
-	\begin{enumerate}[leftmargin=1cm]
-        \item [{\bf Rationale:}] Cost of living data is required by analysis algorithms.
-        \item [{\bf Fit Criterion:}] Cost of living data is successfully loaded/stored by the application.
+        \item [{\bf Rationale:}] Cost of living data is required to perform the analyses.
+        \item [{\bf Fit Criterion:}] Cost of living data is successfully loaded/stored into an abstract datatype by the application.
 	\end{enumerate}
 	
-
+    \item The application must load and store geographic location information for U.S. cities using the data available from the GeoNames database.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] The geographic location data of U.S. cities is required to perform the analyses.
+        \item [{\bf Fit Criterion:}] Geographic location data is successfully loaded/stored into an abstract datatype by the application.
+	\end{enumerate}
 \end{enumerate}
 % End Section
 
 \subsection{Algorithmic Requirements}
 % Begin Section:
-**fix / complete**
 
 \begin{enumerate}[\bf{FAR}1.]
 
-    \item The application must be able to produce a graph.
+    \item The application must be able to sort employment data efficiently for use in the analyses.
 	\begin{enumerate}[leftmargin=1cm]
-        \item [{\bf Rationale:}] Location data must be sorted to .
+        \item [{\bf Rationale:}] Employment data must be sorted to enable efficient searching.
         \item [{\bf Fit Criterion:}] The application successfully sorts location data in $n~log~n$ time.
 	\end{enumerate}
 
-	\item The application must be able to search .
+	\item The application must be able to search employment data efficiently for use in the analyses.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] Searching of employment data will be performed frequently by the application.
+        \item [{\bf Fit Criterion:}] The application searches for an entry in the loaded employment data and returns a result in $log~n$ time or better.
+	\end{enumerate}
+
+    \item The application must be able to sort cost of living data efficiently for use in the analyses.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] Cost of living data must be sorted to enable efficient searching.
+        \item [{\bf Fit Criterion:}] The application successfully sorts cost of living data in $n~log~n$ time.
+	\end{enumerate}
+
+	\item The application must be able to search cost of living data efficiently for use in the analyses.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] Searching of cost of living data will be performed frequently by the application.
+        \item [{\bf Fit Criterion:}] The application searches for an entry in the loaded cost of living data and returns a result in $log~n$ time or better.
+	\end{enumerate}
+
+    \item The application must be able to sort location data efficiently for use in the analyses.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] Location data must be sorted to enable efficient searching.
+        \item [{\bf Fit Criterion:}] The application successfully sorts location data in $n~log~n$ time.
+	\end{enumerate}
+
+	\item The application must be able to search location data efficiently for use in the analyses.
 	\begin{enumerate}[leftmargin=1cm]
         \item [{\bf Rationale:}] Searching of location data will be performed frequently by the application.
-        \item [{\bf Fit Criterion:}] The application searches for an entry in the loaded location data and returns a result in $n~log~n$ time.
+        \item [{\bf Fit Criterion:}] The application searches for an entry in the loaded location data and returns a result in $log~n$ time or better.
 	\end{enumerate}
 
-    \item The application must be able to produce a list of locations that are within .
+    \item The application must be able to transform a set of inputs into a ranked listing of the locations that yield the highest adjusted compensation (the output).
 	\begin{enumerate}[leftmargin=1cm]
-        \item [{\bf Rationale:}]
-        \item [{\bf Fit Criterion:}]
-	\end{enumerate}
-
-    \item The application must perform an algorithmic analysis .
-	\begin{enumerate}[leftmargin=1cm]
-        \item [{\bf Rationale:}] .
-        \item [{\bf Fit Criterion:}]
+        \item [{\bf Rationale:}] This is the main function of the application.  This requirement depends on the previous algorithmic requirements for sorting and searching.
+        \item [{\bf Fit Criterion:}] A given input is successfully transformed into an output consisting of a list of locations ranked by highest adjusted compensation.
 	\end{enumerate}
 
 	
@@ -349,7 +403,7 @@ The risks that may need to be overcome during the implementation of this project
 \begin{enumerate}[{PAR}1. ]
 \item The application must give appropriate results depending on the exact radius the user requested.
 
-\item Inputted radius must be accurate to ~100 meters.
+\item Inputted radius must be accurate to \~100 meters.
 \end{enumerate}
 % End SubSubSection
 
@@ -367,7 +421,7 @@ The risks that may need to be overcome during the implementation of this project
 \begin{enumerate}[{RFR}1. ]
 \item The application must give the user a relevant error message when an error occurs.
 
-\item The application must insure the user inputs all neccessary fields before searching.
+\item The application must insure the user inputs all necessary fields before searching.
 
 \item The application must save the users previous entries.
 
@@ -378,7 +432,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:longevity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LONGR}1. ]
-\item The application must run as long as it is on a compatable OS.
+\item The application must run as long as it is on a compatible OS.
 \end{enumerate}
 % End SubSubSection
 
@@ -388,11 +442,11 @@ The risks that may need to be overcome during the implementation of this project
 \label{sub:operational_and_environmental_requirements}
 % Begin SubSection
 
-\subsubsection{Expected Physical Environment}
+\subsubsection{Expected Physical Environment Requirements}
 \label{ssub:expected_physical_environment}
 % Begin SubSubSection
-\begin{enumerate}[{EPE}1. ]
-\item The application will be used by users looking for potential employement.
+\begin{enumerate}[{EPER}1. ]
+\item The application will be used by users looking for potential employment.
 
 \end{enumerate}
 % End SubSubSection
@@ -440,7 +494,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:access_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SAR}1. ]
-\item The Application will be accessible to windows users.
+\item The application will be accessible to users with a compatible computer/device.
 
 
 \end{enumerate}
@@ -448,7 +502,7 @@ The risks that may need to be overcome during the implementation of this project
 \subsubsection{Privacy Requirements}
 \label{ssub:privacy_requirements}
 \begin{enumerate}[{SPR}1. ]
-\item The system shall protect the privacy of users, not allowing users to access others users personal information
+\item The system shall protect the privacy of users, not allowing users to access others users personal information.
 \end{enumerate}
 % End SubSubSection
 
@@ -485,10 +539,46 @@ The risks that may need to be overcome during the implementation of this project
 % End SubSection
 
 \section{Requirements on the Development and Maintenance Process}
-\label{sub:req on dev and maint}
+\label{sec:req_on_dev_and_maint}
+\subsection{Quality Control Procedures}
+Quality will be controlled by employing both unit testing and manual testing by the developers.  Unit testing will be carried out using JUnit and will include tests that ensure the accuracy of all data structures and algorithms implemented in this project.  Manual testing will include visual inspections to ensure that input and output fields display correctly and function correctly.
 
+\subsection{Implementation of Requirements}
+The implementation of requirements will be carried out in the following order:
 
+\begin{enumerate}
+\item Data structure and algorithmic functional requirements will be implemented first and will act as the core of the application.
+\item Input and output functional requirements will be implemented next to create a fully working application.
+\item Non-functional requirements will be checked for adherence.  If some non-functional requirements are not met, small changes to the implementation should be sufficient to remedy them.
+\end{enumerate}
+
+\subsection{Likely Changes}
+At this point, there are no likely changes to the functional or non-functional requirements described in this document, or to the development and maintenance process.
 % End SubSection
+
+
+\newpage
+\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
+
+\bibitem[1]{ref:empstat}
+U.S. Department of Labor, Bureau of Labor Statistics.
+\newblock (2015, Nov 4).
+\newblock {\em Occupational Employment Statistics - Employment and Wages} [Online].
+\newblock Available: \url{http://catalog.data.gov/dataset/occupational-employment-statistics-employment-and-wages}
+
+\bibitem[2]{ref:afford}
+Office of the Secretary of Transportation.
+\newblock (2015, Aug 28).
+\newblock {\em Location Affordability Index: All Census Places} [Online].
+\newblock Available: \url{http://catalog.data.gov/dataset/location-affordability-index-all-census-places}
+
+\bibitem[3]{ref:geo}
+GeoNames.
+\newblock (2016, Feb 7).
+\newblock {\em GeoNames} [Online].
+\newblock Available: \url{http://download.geonames.org/export/dump/}
+
+\end{thebibliography}
 
 \end{document}
 %------------------------------------------------------------------------------
