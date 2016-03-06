@@ -27,9 +27,9 @@
 
 % Header and Footer
 %------------------------------------------------------------------------------
-\pagestyle{plain}  
-\renewcommand\headrulewidth{0.4pt}                                      
-\renewcommand\footrulewidth{0.4pt}                                    
+\pagestyle{plain}
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
 %------------------------------------------------------------------------------
 
 
@@ -39,8 +39,8 @@
 
 % Title Page & Table of Contents
 %------------------------------------------------------------------------------
-\pagenumbering{gobble} 
-\vspace*{\fill} 
+\pagenumbering{gobble}
+\vspace*{\fill}
 {\centering{
 \Huge{Compensation Analysis Tool}\\
 \bigskip
@@ -56,7 +56,7 @@
 \bigskip \bigskip \bigskip
 \today
 }
-\vspace*{\fill} 
+\vspace*{\fill}
 
 \newpage
 
@@ -74,26 +74,12 @@
 \label{sec:introduction}
 % Begin Section
 
-\subsection{Purpose}
+\subsection{Purpose and Overview}
 \label{sub:purpose}
 % Begin SubSection	
-
+The purpose of this document is to provide a description of the system requirements for the Compensation Analysis Tool software.  The objectives and scope of the project are given, as well as .  Functional and non-functional requirements are identified and .  Requirements on the development and maintenance process of the project are also described.
 % End SubSection
 
-\subsection{Objectives}
-The objective of this project is to produce a software tool used to assess and rank the most viable locations to start a career in a particular field. The software will produce a list of locations that offer the best income potential for a particular career or field using a mixture of employment and cost of living statistics. In addition, the software will include an option to consider the possibility of commuting in order to reduce the cost of living.
-
-\color{black}
-\subsection{Scope}
-\label{sub:scope}
-% Begin SubSection
-The application will be geographically limited to the United States and will only consider income related factors to arrive at a ranking.  These limitations may be expanded upon in the future, but such enhancements are beyond the current scope of the application. The application will be implemented in Java and will be able to be run on any desktop, laptop, or other device with the ability to execute JAR (Java Archive) files. 
-\newline
-
-The stakeholders of this project include the team members, the instructor and teaching assistants of the CAS 2XB3 course, and any persons seeking employment who would use the tool.
-
-
-% End SubSection
 
 \subsection{Definitions, Acronyms, and Abbreviations}
 \label{sub:definitions_acronyms_and_abbreviations}
@@ -103,46 +89,29 @@ The stakeholders of this project include the team members, the instructor and te
 \end{enumerate}
 % End SubSection
 
-
-\subsection{Overview}
-\label{sub:overview}
-% Begin SubSection
-
-% End SubSection
-
-% End Section
-
-\section{Overall Description}
+\section{Domain}
 \label{sec:overall_description}
 % Begin Section
 
-\subsection{Product Perspective}
-\label{sub:product_perspective}
-% Begin SubSection
+\subsection{Objective}
+The objective of this project is to produce a software tool used to assess and rank the most viable locations to start a career in a particular field. The software will produce a list of locations that offer the best income potential for a particular career or field using a mixture of employment and cost of living statistics. In addition, the software will include an option to consider the possibility of commuting in order to reduce the cost of living.
 
-% End SubSection
-
-\subsection{Product Functions}
-\label{sub:product_functions}
+\color{black}
+\subsection{Scope}
+\label{sub:scope}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item
-\end{enumerate}
-% End SubSection
+The application will be geographically limited to the United States and will only consider income related factors to arrive at a ranking.  These limitations may be expanded upon in the future, but such enhancements are beyond the current scope of the application. The application will be implemented in Java and will be able to be run on any desktop, laptop, or other device with the ability to execute JAR (Java Archive) files.
+\newline
 
-\subsection{User Characteristics}
-\label{sub:user_characteristics}
-% Begin SubSection
-The user of this application is expected to...
+The stakeholders of this project include the team members, the instructor and teaching assistants of the CAS 2XB3 course, and any persons seeking employment who would use the tool.
+
+
 % End SubSection
 
 \subsection{Constraints}
 \label{sub:constraints}
 % Begin SubSection
-
-\label{sub:constraints}
-% Begin SubSection
-The following constraints apply in the development of our application:
+The following constraints will apply to the development of our application:
 \begin{enumerate}
 	\item All milestones outlined in the CAS 2XB3 project description must be met.
 	\item All deliverables must be completed in their final form by the due date given in the CAS 2XB3 project description.
@@ -154,62 +123,136 @@ The following constraints apply in the development of our application:
 % Begin SubSection
 The following assumptions were made in the development of our requirements:
 \begin{enumerate}
-	\item The computer/device used to run the application will have the ability to execute JAR files. 
+	\item The computer/device used to run the application will have the ability to execute JAR files.
 \end{enumerate}
-% End SubSection
-
-\subsection{Apportioning of Requirements}
-\label{sub:apportioning_of_requirements}
-% Begin SubSection
-
 % End SubSection
 
 \subsection{Risks}
 
-The risks that may need to be overcome during the implementation of this project are 
+The risks that may need to be overcome during the implementation of this project are
 
 \medskip
 \begin{enumerate}
 
-\item Using the Data sets to give users accurate and up to date results of potential employers. 
+\item Using the Data sets to give users accurate and up to date results of potential employers.
 
-\item Using Google Maps API to allow the user to use their location to allow app to show results in their area.  
+\item Using Google Maps API to allow the user to use their location to allow app to show results in their area.
 
-\color{red} \item 
+\color{red} \item
 
 \end{enumerate}
-\subsection{Schedule} 
-
-
-
 % End Section
-\color{black}
+
+
 \section{Functional Requirements}
 \label{sec:functional_requirements}
 
+\subsection{Input Requirements}
 % Begin Section:
-\begin{enumerate}[{BE}1.]
-	\item 
-	\begin{enumerate}[{VP1}.1]
-		\item User
-			\begin{enumerate}
-				\item 
-		         \end{enumerate}
-		\item Application 
-			\begin{enumerate}
-				\item 
-			\end{enumerate}
-		\item Legal
-			\begin{enumerate}
-				\item 
-			\end{enumerate}
+\begin{enumerate}[\bf{FIR}1.]
+	\item The application must allow the user to select a career field.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] The user must be able to select a career field in order to perform the analysis.
+        \item [{\bf Fit Criterion:}] The user is able to select a career field when running an analysis.
+	\end{enumerate}
+
+    \item The application must allow the user to (optionally) select a career title.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] The user must have the option of selecting a career title to allow for a more specific analysis.
+        \item [{\bf Fit Criterion:}] The user is able to select a career title when running an analysis to .
+	\end{enumerate}
+
+    \item The application must allow the user to (optionally) select a location restriction.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] The user must have the option to limit analyses within a radius of a particular city.
+        \item [{\bf Fit Criterion:}] The user is able to select a location and radius when running an analysis to limit the search.
+	\end{enumerate}
+
+    \item The application must allow the user to (optionally) select a commuting distance.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] The user must have the option to limit analyses within a radius of a particular city.
+        \item [{\bf Fit Criterion:}] The user is able to select a career field when running the application.
+	\end{enumerate}
+
+    \item The application must allow the user to run an analysis after all required/optional inputs are specified.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] The application must be able to perform analyses.
+        \item [{\bf Fit Criterion:}] The application transforms input data into output data.
+	\end{enumerate}
+	
+
+\end{enumerate}
+
+\subsection{Data Requirements}
+% Begin Section:
+\begin{enumerate}[\bf{FDR}1.]
+	\item The application must load and store geographic location data for U.S. cities.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] The geographic location data of U.S. cities is required by analysis algorithms.
+        \item [{\bf Fit Criterion:}] Geographic location data is successfully loaded/stored by the application.
+	\end{enumerate}
+
+	\item The application must load and store employment data.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] Employment data is required by analysis algorithms.
+        \item [{\bf Fit Criterion:}] Employment data is successfully loaded/stored by the application.
+	\end{enumerate}
+
+	\item The application must load and store cost of living data.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] Cost of living data is required by analysis algorithms.
+        \item [{\bf Fit Criterion:}] Cost of living data is successfully loaded/stored by the application.
+	\end{enumerate}
+	
+
+\end{enumerate}
+% End Section
+
+\subsection{Algorithmic Requirements}
+% Begin Section:
+**fix / complete**
+
+\begin{enumerate}[\bf{FAR}1.]
+
+    \item The application must be able to produce a graph.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] Location data must be sorted to .
+        \item [{\bf Fit Criterion:}] The application successfully sorts location data in $n~log~n$ time.
+	\end{enumerate}
+
+	\item The application must be able to search .
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] Searching of location data will be performed frequently by the application.
+        \item [{\bf Fit Criterion:}] The application searches for an entry in the loaded location data and returns a result in $n~log~n$ time.
+	\end{enumerate}
+
+    \item The application must be able to produce a list of locations that are within .
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}]
+        \item [{\bf Fit Criterion:}]
+	\end{enumerate}
+
+    \item The application must perform an algorithmic analysis .
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] .
+        \item [{\bf Fit Criterion:}]
 	\end{enumerate}
 
 	
+
 \end{enumerate}
 
+\subsection{Output Requirements}
+% Begin Section:
+\begin{enumerate}[\bf{FOR}1.]
+    \item The application must print the output data in a way that is readable by the user.
+	\begin{enumerate}[leftmargin=1cm]
+        \item [{\bf Rationale:}] The user needs to be able to see the result of the analysis.
+        \item [{\bf Fit Criterion:}] Output data is formatted and displayed in the application.
+	\end{enumerate}
+	
 
-% End Section
+\end{enumerate}
 
 \section{Non-Functional Requirements}
 \label{sec:non-functional_requirements}
@@ -221,7 +264,7 @@ The risks that may need to be overcome during the implementation of this project
 \subsubsection{Appearance Requirements}
 \label{ssub:appearance_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{AR}1. ] 
+\begin{enumerate}[{AR}1. ]
 
 \item The Application should have a default bright and colorful scheme, using uniform colors and a uniform layout.
 
@@ -237,7 +280,7 @@ The risks that may need to be overcome during the implementation of this project
 \begin{enumerate}[{SR}1. ]
 \item The Application should provide a uniform look and feel between all the pages and tabs.
 
-\item Results returned from the input must be clear and uniform. 
+\item Results returned from the input must be clear and uniform.
 \end{enumerate}
 % End SubSubSection
 
@@ -252,9 +295,9 @@ The risks that may need to be overcome during the implementation of this project
 % Begin SubSubSection
 \begin{enumerate}[{EUR}1. ]
 
-\item Searching through career fields, and finding the needed result must be easy and fast to do. 
+\item Searching through career fields, and finding the needed result must be easy and fast to do.
 
-\item Choosing your current location, and accepted radius must be easy to do. 
+\item Choosing your current location, and accepted radius must be easy to do.
 
 \end{enumerate}
 
@@ -264,7 +307,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:learning_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR}1. ]
-\item The product should have an intuitive layout, it will take the user no longer than 10 minutes to learn to use. 
+\item The product should have an intuitive layout, it will take the user no longer than 10 minutes to learn to use.
 \end{enumerate}
 % End SubSubSection
 
@@ -272,9 +315,9 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:understandability_and_politeness_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UPR}1. ]
-\item Application must use proper English, and must be easy to read. 
+\item Application must use proper English, and must be easy to read.
 
-\item No inappropriate language must be included. 
+\item No inappropriate language must be included.
 \end{enumerate}
 % End SubSubSection
 
@@ -282,7 +325,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:accessibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{ACR}1. ]
-\item Font sizes, input boxes, and results should all be appropriate size. 
+\item Font sizes, input boxes, and results should all be appropriate size.
 \end{enumerate}
 % End SubSubSection
 
@@ -296,7 +339,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:speed_and_latency_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SLR}1. ]
-\item Load times between the user inputting their information to the program giving the results must take no longer than 10 seconds. 
+\item Load times between the user inputting their information to the program giving the results must take no longer than 10 seconds.
 \end{enumerate}
 % End SubSubSection
 
@@ -304,9 +347,9 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:precision_or_accuracy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PAR}1. ]
-\item The application must give appropriate results depending on the exact radius the user requested. 
+\item The application must give appropriate results depending on the exact radius the user requested.
 
-\item Inputted radius must be accurate to ~100 meters. 
+\item Inputted radius must be accurate to ~100 meters.
 \end{enumerate}
 % End SubSubSection
 
@@ -322,11 +365,11 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:robustness_or_fault_tolerance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{RFR}1. ]
-\item The application must give the user a relevant error message when an error occurs. 
+\item The application must give the user a relevant error message when an error occurs.
 
-\item The application must insure the user inputs all neccessary fields before searching. 
+\item The application must insure the user inputs all neccessary fields before searching.
 
-\item The application must save the users previous entries. 
+\item The application must save the users previous entries.
 
 \end{enumerate}
 % End SubSubSection
@@ -335,7 +378,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:longevity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LONGR}1. ]
-\item The application must run as long as it is on a compatable OS. 
+\item The application must run as long as it is on a compatable OS.
 \end{enumerate}
 % End SubSubSection
 
@@ -349,7 +392,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:expected_physical_environment}
 % Begin SubSubSection
 \begin{enumerate}[{EPE}1. ]
-\item The application will be used by users looking for potential employement. 
+\item The application will be used by users looking for potential employement.
 
 \end{enumerate}
 % End SubSubSection
@@ -365,7 +408,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:maintenance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MR}1. ]
-\item The system should be documented in such a way that maintaining and updating it is easy for programmers who did not build it initially. 
+\item The system should be documented in such a way that maintaining and updating it is easy for programmers who did not build it initially.
 
 \end{enumerate}
 % End SubSubSection
@@ -374,7 +417,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:supportability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MSR}1. ]
-\item The application must run on windows, and be accessible to anyone with a windows computer. 
+\item The application must run on windows, and be accessible to anyone with a windows computer.
 
 \end{enumerate}
 % End SubSubSection
@@ -382,7 +425,7 @@ The risks that may need to be overcome during the implementation of this project
 \subsubsection{Adaptability Requirements}
 \label{ssub:adaptability_requirements}
 \begin{enumerate}[{MAR}1. ]
-\item The system should be built in such a way that adding entirely new features does not require the rewriting of old features. 
+\item The system should be built in such a way that adding entirely new features does not require the rewriting of old features.
 
 \end{enumerate}
 % End SubSubSection
@@ -397,7 +440,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:access_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SAR}1. ]
-\item The Application will be accessible to windows users. 
+\item The Application will be accessible to windows users.
 
 
 \end{enumerate}
@@ -441,8 +484,8 @@ The risks that may need to be overcome during the implementation of this project
 
 % End SubSection
 
-\section{References}
-\label{sub:references}
+\section{Requirements on the Development and Maintenance Process}
+\label{sub:req on dev and maint}
 
 
 % End SubSection
