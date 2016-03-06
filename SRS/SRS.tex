@@ -164,14 +164,19 @@ The following assumptions were made in the development of our requirements:
 
 % End SubSection
 
-\color{red}\subsection{Risks}
+\subsection{Risks}
 
 The risks that may need to be overcome during the implementation of this project are 
 
 \medskip
 \begin{enumerate}
 
-\item
+\item Using the Data sets to give users accurate and up to date results of potential employers. 
+
+\item Using Google Maps API to allow the user to use their location to allow app to show results in their area.  
+
+\color{red} \item 
+
 \end{enumerate}
 \subsection{Schedule} 
 
@@ -216,8 +221,13 @@ The risks that may need to be overcome during the implementation of this project
 \subsubsection{Appearance Requirements}
 \label{ssub:appearance_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{AR}1. ]
-\item
+\begin{enumerate}[{AR}1. ] 
+
+\item The Application should have a default bright and colorful scheme, using uniform colors and a uniform layout.
+
+\item All tabs, buttons and input fields must be easily visible.
+
+
 \end{enumerate}
 % End SubSubSection
 
@@ -225,7 +235,9 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:style_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
-\item
+\item The Application should provide a uniform look and feel between all the pages and tabs.
+
+\item Results returned from the input must be clear and uniform. 
 \end{enumerate}
 % End SubSubSection
 
@@ -239,7 +251,11 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:ease_of_use_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{EUR}1. ]
-\item
+
+\item Searching through career fields, and finding the needed result must be easy and fast to do. 
+
+\item Choosing your current location, and accepted radius must be easy to do. 
+
 \end{enumerate}
 
 % End SubSubSection
@@ -248,7 +264,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:learning_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR}1. ]
-\item
+\item The product should have an intuitive layout, it will take the user no longer than 10 minutes to learn to use. 
 \end{enumerate}
 % End SubSubSection
 
@@ -256,7 +272,9 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:understandability_and_politeness_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UPR}1. ]
-\item
+\item Application must use proper English, and must be easy to read. 
+
+\item No inappropriate language must be included. 
 \end{enumerate}
 % End SubSubSection
 
@@ -264,7 +282,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:accessibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{ACR}1. ]
-\item
+\item Font sizes, input boxes, and results should all be appropriate size. 
 \end{enumerate}
 % End SubSubSection
 
@@ -278,7 +296,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:speed_and_latency_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SLR}1. ]
-\item
+\item Load times between the user inputting their information to the program giving the results must take no longer than 10 seconds. 
 \end{enumerate}
 % End SubSubSection
 
@@ -286,7 +304,9 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:precision_or_accuracy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PAR}1. ]
-\item
+\item The application must give appropriate results depending on the exact radius the user requested. 
+
+\item Inputted radius must be accurate to ~100 meters. 
 \end{enumerate}
 % End SubSubSection
 
@@ -294,7 +314,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:reliability_and_availability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{RAR}1. ]
-\item
+\item The system shall be available at all times.
 \end{enumerate}
 % End SubSubSection
 
@@ -302,7 +322,12 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:robustness_or_fault_tolerance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{RFR}1. ]
-\item
+\item The application must give the user a relevant error message when an error occurs. 
+
+\item The application must insure the user inputs all neccessary fields before searching. 
+
+\item The application must save the users previous entries. 
+
 \end{enumerate}
 % End SubSubSection
 
@@ -310,7 +335,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:longevity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LONGR}1. ]
-\item
+\item The application must run as long as it is on a compatable OS. 
 \end{enumerate}
 % End SubSubSection
 
@@ -324,17 +349,11 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:expected_physical_environment}
 % Begin SubSubSection
 \begin{enumerate}[{EPE}1. ]
-\item
+\item The application will be used by users looking for potential employement. 
+
 \end{enumerate}
 % End SubSubSection
 
-\subsubsection{Release Requirements}
-\label{ssub:release_requirements}
-% Begin SubSubSection
-\begin{enumerate}[{RR}1. ]
-\item	
-\end{enumerate}
-% End SubSubSection
 
 % End SubSection
 
@@ -346,7 +365,8 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:maintenance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MR}1. ]
-\item
+\item The system should be documented in such a way that maintaining and updating it is easy for programmers who did not build it initially. 
+
 \end{enumerate}
 % End SubSubSection
 
@@ -354,14 +374,16 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:supportability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MSR}1. ]
-\item
+\item The application must run on windows, and be accessible to anyone with a windows computer. 
+
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Adaptability Requirements}
 \label{ssub:adaptability_requirements}
 \begin{enumerate}[{MAR}1. ]
-\item
+\item The system should be built in such a way that adding entirely new features does not require the rewriting of old features. 
+
 \end{enumerate}
 % End SubSubSection
 
@@ -375,13 +397,15 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:access_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SAR}1. ]
-\item
+\item The Application will be accessible to windows users. 
+
+
 \end{enumerate}
 % End SubSubSection
 \subsubsection{Privacy Requirements}
 \label{ssub:privacy_requirements}
 \begin{enumerate}[{SPR}1. ]
-\item
+\item The system shall protect the privacy of users, not allowing users to access others users personal information
 \end{enumerate}
 % End SubSubSection
 
@@ -395,7 +419,7 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:cultural_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{CCR}1. ]
-\item
+\item The product will use Canadian English spelling.
 \end{enumerate}
 % End SubSubSection
 
@@ -409,7 +433,8 @@ The risks that may need to be overcome during the implementation of this project
 \label{ssub:compliance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LCR}1. ]
-	\item
+\item This product will comply with the Personal Information Protection and Electronic Documents Act.
+	\item This product will comply with the Ontario Freedom of Information and Privacy Act.
 \end{enumerate}
 % End SubSubSection
 % End SubSubSection
